@@ -3044,6 +3044,9 @@
     public
     integer, parameter :: Transfer_kh =1, Transfer_cdm=2,Transfer_b=3,Transfer_g=4, &
         Transfer_r=5, Transfer_nu = 6,  & !massless and massive neutrino
+        ! DHFS Modification Begins
+        Transfer_de=14, &
+        ! DHFS Modification Ends
         Transfer_tot=7, Transfer_nonu=8, Transfer_tot_de=9,  &
         ! total perturbations with and without neutrinos, with neutrinos+dark energy in the numerator
         Transfer_Weyl = 10, & ! the Weyl potential, for lensing and ISW
@@ -3052,14 +3055,17 @@
     !Sources
     !Alternatively for 21cm
     integer, parameter :: Transfer_monopole=4, Transfer_vnewt=5, Transfer_Tmat = 6
-
-    integer, parameter :: Transfer_max = Transfer_vel_baryon_cdm
+    
+    ! DHFS Modification Begins
+    integer, parameter :: Transfer_max = Transfer_de
     character(LEN=name_tag_len) :: Transfer_name_tags(Transfer_max-1) = &
         ['CDM     ', 'baryon  ', 'photon  ', 'nu      ', 'mass_nu ', 'total   ', &
-        'no_nu   ', 'total_de', 'Weyl    ', 'v_CDM   ', 'v_b     ', 'v_b-v_c ']
+        'no_nu   ', 'total_de', 'Weyl    ', 'v_CDM   ', 'v_b     ', 'v_b-v_c ','DE      ']
+        
     character(LEN=name_tag_len) :: Transfer21cm_name_tags(Transfer_max-1) = &
         ['CDM      ', 'baryon   ', 'photon   ', 'monopole ', 'v_newt   ', 'delta_T_g', &
-        'no_nu    ', 'total_de ', 'Weyl     ', 'v_CDM    ', 'v_b      ', 'v_b-v_c  ']
+        'no_nu    ', 'total_de ', 'Weyl     ', 'v_CDM    ', 'v_b      ', 'v_b-v_c  ','DE       ']
+    ! DHFS Modification Ends
 
     logical :: transfer_interp_matterpower  = .true. !output regular grid in log k
     !set to false to output calculated values for later interpolation

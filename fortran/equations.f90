@@ -2179,6 +2179,9 @@
     ! JVR Modification Begins
     real(dl) w_eff, xi_interaction
     ! JVR Modification Ends
+    ! DHFS Modification Begins
+    real(dl) clxde
+    ! DHFS Modification Ends
 
     k=EV%k_buf
     k2=EV%k2_buf
@@ -2310,6 +2313,10 @@
     if (.not. EV%is_cosmological_constant) &
         call State%CP%DarkEnergy%PerturbationEvolve(ayprime, w_dark_energy_t, &
         EV%w_ix, a, adotoa, k, z, ay)
+
+    ! DHFS Modification Begins
+    clxde = ay(EV%w_ix)
+    ! DHFS Modification Ends 
 
     !  CDM equation of motion
     ! JVR Modification Begins
@@ -2707,6 +2714,9 @@
             EV%OutputTransfer(Transfer_g) = clxg
             EV%OutputTransfer(Transfer_r) = clxr
             EV%OutputTransfer(Transfer_nu) = clxnu
+            ! DHFS Modification Begins
+            EV%OutputTransfer(Transfer_de) = clxde
+            ! DHFS Modification Ends
             EV%OutputTransfer(Transfer_tot) =  dgrho_matter/grho_matter !includes neutrinos
             EV%OutputTransfer(Transfer_nonu) = (grhob_t*clxb+grhoc_t*clxc)/(grhob_t + grhoc_t)
             EV%OutputTransfer(Transfer_tot_de) =  dgrho/grho_matter

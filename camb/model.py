@@ -32,6 +32,9 @@ Transfer_Newt_vel_cdm = 11
 Transfer_Newt_vel_baryon = 12
 Transfer_vel_baryon_cdm = 13
 Transfer_max = Transfer_vel_baryon_cdm
+# DHFS Modification Begins
+Transfer_de = 14
+# DHFS Modification Ends
 
 # for 21cm case
 Transfer_monopole = 4
@@ -47,9 +50,10 @@ NonLinear_names = [NonLinear_none, NonLinear_pk, NonLinear_lens, NonLinear_both]
 derived_names = ['age', 'zstar', 'rstar', 'thetastar', 'DAstar', 'zdrag',
                  'rdrag', 'kd', 'thetad', 'zeq', 'keq', 'thetaeq', 'thetarseq']
 
+# DHFS Modification Begins
 transfer_names = ['k/h', 'delta_cdm', 'delta_baryon', 'delta_photon', 'delta_neutrino', 'delta_nu', 'delta_tot',
-                  'delta_nonu', 'delta_tot_de', 'Weyl', 'v_newtonian_cdm', 'v_newtonian_baryon', 'v_baryon_cdm']
-
+                  'delta_nonu', 'delta_tot_de', 'Weyl', 'v_newtonian_cdm', 'v_newtonian_baryon', 'v_baryon_cdm','delta_de']
+# DHFS Modification Ends
 evolve_names = transfer_names + ['a', 'etak', 'H', 'growth', 'v_photon', 'pi_photon',
                                  'E_2', 'v_neutrino', 'T_source', 'E_source', 'lens_potential_source']
 
